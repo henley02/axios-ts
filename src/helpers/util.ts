@@ -21,6 +21,14 @@ export function isObject(val: any): val is Object {
 }
 
 /**
+ * 判断是否普通对象
+ * @param val
+ */
+export function isPlainObject(val: any): val is Object {
+  return toRawType(val) === 'Object'
+}
+
+/**
  * 判断是否是日期
  * @param val
  */

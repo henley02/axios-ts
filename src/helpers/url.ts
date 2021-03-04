@@ -1,4 +1,4 @@
-import { isArray, isDate, isObject, isUndef } from './util'
+import { isArray, isDate, isPlainObject, isUndef } from './util'
 
 /**
  * 特殊字符支持
@@ -52,7 +52,7 @@ export function buildURL(url: string, params: any) {
       if (isDate(val)) {
         // 参数值为 Date 类型
         val = val.toISOString()
-      } else if (isObject(val)) {
+      } else if (isPlainObject(val)) {
         val = JSON.stringify(val)
       }
       parts.push(`${encode(key)}=${encode(val)}`)
