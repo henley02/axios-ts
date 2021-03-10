@@ -43,3 +43,15 @@ export function isDate(val: any): val is Date {
 export function isArray(val: any): any {
   return toRawType(val) === 'Array'
 }
+
+/**
+ * 混合对象
+ * @param to
+ * @param from
+ */
+export function extend<T, U>(to: T, from: U): T & U {
+  for (const key in from) {
+    ;(to as T & U)[key] = from[key] as any
+  }
+  return to as T & U
+}
